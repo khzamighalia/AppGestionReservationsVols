@@ -1,11 +1,8 @@
 <?php
-include"recherche-back.php"
-        ?>
-
-
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -18,53 +15,35 @@ include"recherche-back.php"
 </head>
 <body>
 <?php include"menu.php" ?>
-	<div class="container text-center">
-		<form method="post" action="recherche">
-			<h1>Resultats des recherches</h1>
 
-	<div id="booking" class="container">
-	<div class="table-responsive">
-	<table class="table">
-	<?php 
-	 $row_cnt = $result->num_rows; 
-	 if($row_cnt <= 0)
-	 echo "<h3 class='text-danger'>Aucun résultat trouvé <h3>";
-	  else {
-	   	  echo"<thead>
-		  <tr>
-		  <th> Depart </th>
-		  <th> Destination </th>
-		  <th> Date depart </th>
-		  <th> Nombre de places </th>
-		  <th> Prix </th>
-		  <th> Reservation </th>
-		  </tr>
-	  </thead>
-	  <tbody>";
-	  while($row = $result->fetch_assoc()) {
-							echo "<tr>
-								  <td> ".$row['date_depart']."</td>
-								  <td> ".$row['depart']." </td>
-								  <td> ".$row['destination']." </td>
-								  <td> ".$row['num_place']."</td>
-								  <td> ".$row['prix']."</td>
-								  <td>
-								  	<a class='btn btn-success' href='reservation.php?id=".$row['id']."' type='button'>Reserver</i></a>
-				  </td>
-						  </tr>";
-						   } 
-						   echo "</tbody>";}
-						   ?>
-	
-	 
-	  					  
-  
-	</table> 
-	</div>
-  </div>	
-  </form>	
-	</div>
-	<?php include"footer.php" ?>
+
+	<h1> Profil</h1>
+<section class="s1">
+	<!-- Default form subscription -->
+	<form class="text-center border border-light p-5" method="post" action="recherche.php">
+		<!-- Name -->
+		<label for="exampleInputEmail1">Nom </label>
+		<input type="text" class="form-control mb-4" value="<?php echo $_SESSION['fullname'];?>" disabled>
+
+		<!-- Email -->
+		<label for="exampleInputPassword1">Email</label>
+        <input type="text" class="form-control mb-4" value="<?php echo $_SESSION['email'];?>" disabled>
+        <label for="exampleInputPassword1">Statut</label>
+		<input type="text" value="<?php echo $_SESSION['statut'];?>" disabled class="form-control mb-4">
+
+		<!-- Sign in button -->
+		
+
+
+	</form>
+
+	 
+
+
+
+	</section>
+<?php include"footer.php" ?>
+
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -1,105 +1,103 @@
-<?php
-include 'confirmation-back.php';
-?>
+<?php include"confirmation-back.php" ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Sky flight</title>
-
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-
-
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-
-
-
-
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SKY FLIGHT</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Planifier</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mes réservations
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">S’inscrire</a>
-                        <a class="dropdown-item" href="#">Se connecter</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Faq</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
-            </form>
-        </div>
-    </nav>
+<?php
+include('menu.php');
+?>
+	<h1> TICKET</h1>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 mt-3 bg-info p-2 rounded">
-                <h2 class="bg-light p-2 rounded text-center text-dark">Ticket N° : <?= $row2['id']; ?></h2>
-                <h4 class="text-light">Nom : <?= $row2['nom']; ?> </h4>
-                <h4 class="text-light">Prenom : <?= $row2['prenom'] ?> </h4>
-                <h4 class="text-light">Age : <?= $row2['age']; ?> </h4>
-                <h4 class="text-light">Pays : <?= $row2['pays'] ?> </h4>
-                <h4 class="text-light">Depart : <?= $row1['depart']; ?> </h4>
-                <h4 class="text-light">Destination : <?= $row1['destination'] ?> </h4>
-                <h4 class="text-light">Date De Part : <?= $row1['date_depart']; ?> </h4>
-                <h4 class="text-light">Prix : <?= $row1['prix'] ?> </h4>
-                <hr>
-                <button type="button" class="btn bg-light p-2 rounded text-center text-dark" data-toggle="modal" data-target="#exampleModal">
-                    Confirmer
-                </button>
+                    <section class="s1 confirmation">
+	<!-- Default form subscription -->
+	<form class="border border-light" method="post" action="recherche.php">
+        <!-- Name -->
+        <h3 class="text-center text-danger">Ticket N° : <?= $row2['id']; ?></h3>
+        <h4 class="text-info"> Informations du passager:</h4>
+        <div class="row">
+          <div class="col-md-6">
+		<label for="exampleInputEmail1">Nom </label>
+        <input type="text" class="form-control" value="<?= $row2['nom']; ?>" disabled>
+</div>
+<div class="col-md-6">
+		<label for="exampleInputPassword1">Prenom</label>
+        <input type="text" class="form-control" value="<?= $row2['prenom']; ?>" disabled>
+</div>
+</div>
+<div class="row">
+          <div class="col-md-6">
+		<label for="exampleInputEmail1">Age</label>
+        <input type="text" class="form-control" value="<?= $row2['age']; ?>" disabled>
+</div>
+<div class="col-md-6">
+		<label for="exampleInputPassword1">Pays</label>
+        <input type="text" class="form-control" value="<?= $row2['pays']; ?>" disabled>
+</div>
+</div>
+<h4 class="text-info"> Informations du vol:</h4>
+<div class="row">
+          <div class="col-md-6">
+		<label for="exampleInputEmail1">Ville de départ </label>
+        <input type="text" class="form-control" value="<?= $row1['depart']; ?>" disabled>
+</div>
+<div class="col-md-6">
+		<label for="exampleInputPassword1">Ville de destination</label>
+        <input type="text" class="form-control" value="<?= $row1['destination']; ?>" disabled>
+</div>
+</div>
+<div class="row">
+          <div class="col-md-6">
+		<label for="exampleInputEmail1"> Date de départ </label>
+        <input type="text" class="form-control" value="<?= $row1['date_depart']; ?>" disabled>
+</div>
+<div class="col-md-6">
+		<label for="exampleInputPassword1">Prix</label>
+        <input type="text" class="form-control" value="<?= $row1['prix']; ?>" disabled>
+</div>
+</div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                            Êtes-vous sûr ?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                <button type="button" class="btn btn-danger"><a href="index.php"> Confirmer</a></button>
+	</form>
+
+	 
+
+
+
+	</section>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Etes vous sûr ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn"><a href="index.php">Confirm </a></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -107,20 +105,8 @@ include 'confirmation-back.php';
 
 
 
-
-    <div class="card text-center">
-        <div class="card-header">
-            Fonctionnalités
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">© 2020 Sky flight </h5>
-            <p class="card-text">Tous droits réservés </p>
-            <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
-        </div>
-        <div class="card-footer text-muted">
-            Il y a deux jours
-        </div>
-    </div>
+<?php include"footer.php"
+?>
 
 
 

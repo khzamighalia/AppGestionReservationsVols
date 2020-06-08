@@ -1,65 +1,26 @@
 <?php
-include('dbconnection.php');
+session_start();
+if(!$_SESSION['login']) 
+header("Location: login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Sky flight</title>
-
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-
-
-
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-
-
-
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
-
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">SKY FLIGHT</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+<?php include"menu.php" ?>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Planifier</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Mes réservations
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">S’inscrire</a>
-						<a class="dropdown-item" href="#">Se connecter</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Faq</a>
-					</div>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
-			</form>
-		</div>
-	</nav>
 
+	<h1> Recherche des vols</h1>
+<section class="s1">
 	<!-- Default form subscription -->
 	<form class="text-center border border-light p-5" method="post" action="recherche.php">
 		<!-- Name -->
@@ -72,6 +33,7 @@ include('dbconnection.php');
 
 		<!-- Sign in button -->
 		<button class="btn btn-info btn-block" type="submit" name="submit-search">Chercher les vols</button>
+		
 
 
 	</form>
@@ -81,27 +43,7 @@ include('dbconnection.php');
 
 
 	</section>
-	</div>
-	<div class="blink" style="margin-top: 200px;"></div>
-
-
-
-
-	<div class="card text-center">
-        <div class="card-header">
-            Fonctionnalités
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">© 2020 Sky flight </h5>
-            <p class="card-text">Tous droits réservés </p>
-            <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
-        </div>
-        <div class="card-footer text-muted">
-            Il y a deux jours
-        </div>
-    </div>
-
-
+<?php include"footer.php" ?>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
